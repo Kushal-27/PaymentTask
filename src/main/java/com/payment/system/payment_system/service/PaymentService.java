@@ -10,5 +10,5 @@ import java.util.UUID;
 public interface PaymentService {
 
     Transaction processPayment(PaymentRequest request);
-    List<Transaction> getTransactions(UUID userId, String status, Date from, Date to);
+    List<Transaction> getTransactions(Long userId, String status, Date from, Date to);
 }

@@ -26,7 +26,7 @@ public class PaymentController {
 
     @GetMapping("/transactions")
     public List<Transaction> getTransactions(
-            @RequestParam UUID userId,
+            @RequestParam Long userId,
             @RequestParam String status,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date from,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date to) {

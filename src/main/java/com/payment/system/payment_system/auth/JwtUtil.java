@@ -15,7 +15,6 @@ public class JwtUtil {
     private final long jwtExpirationMs = 3600000; // 1 hour
 
     public JwtUtil() {
-        // Example secret, must be at least 256 bits (32 bytes) for HS256
         String secret = "my_super_secret_key_which_should_be_very_long_123!";
         byte[] keyBytes = secret.getBytes();
         this.key = new SecretKeySpec(keyBytes, SignatureAlgorithm.HS256.getJcaName());

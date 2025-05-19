@@ -25,12 +25,20 @@ public class User {
     private String username;
 
     @Column(nullable = false)
-    private String password;  // stored as hashed (e.g., BCrypt)
+    private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Set<Role> roles;
+
+
+    public boolean isAdmin() {
+        if (roles.contains(Role.ROLE_ADMIN)) {
+            return true;
+        }
+        return false;
+    }
 
 }

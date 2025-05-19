@@ -27,9 +27,7 @@ public class PaymentServiceImpl implements PaymentService {
     private final UserRepository userRepository;
 
     @Override
-    public Transaction processPayment(PaymentRequest request) {
-
-        User user = getCurrentUser();
+    public Transaction processPayment(PaymentRequest request, User user) {
 
         Transaction tx = Transaction.builder()
                 .amount(request.getAmount())
@@ -53,10 +51,5 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
 
-    public User getCurrentUser() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-    }
 
 }

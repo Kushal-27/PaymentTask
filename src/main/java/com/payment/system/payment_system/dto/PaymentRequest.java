@@ -1,5 +1,7 @@
 package com.payment.system.payment_system.dto;
 
+import com.payment.system.payment_system.annotation.ImarkEmail;
+import com.payment.system.payment_system.annotation.ValidCardNumber;
 import com.payment.system.payment_system.model.Currency;
 import com.payment.system.payment_system.model.PaymentMethod;
 import jakarta.validation.constraints.*;
@@ -17,12 +19,12 @@ public class PaymentRequest {
     @NotBlank
     private String customerName;
 
-    @Email
+    @ImarkEmail
     private String customerEmail;
 
     @NotNull
     private PaymentMethod paymentMethod;
 
-    @NotBlank
+    @ValidCardNumber
     private String cardOrAccountDetails;
 }

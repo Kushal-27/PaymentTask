@@ -8,7 +8,7 @@ public class CardNumberValidator implements ConstraintValidator<ValidCardNumber,
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return value != null && value.matches("\\d{16}");
-        // You can also implement the Luhn algorithm here if needed
+        return value != null && value.matches("^\\d{4}([- ]?)\\d{4}\\1\\d{4}\\1\\d{4}$");
     }
+
 }

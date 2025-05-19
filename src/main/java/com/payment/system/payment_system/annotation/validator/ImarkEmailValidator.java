@@ -8,6 +8,7 @@ public class ImarkEmailValidator implements ConstraintValidator<ImarkEmail, Stri
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return value != null && value.endsWith("@imark.com.np");
+        return value != null && value.matches("^[\\w._%+-]+@imark\\.com\\.np$");
     }
+
 }
